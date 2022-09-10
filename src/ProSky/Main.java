@@ -1,70 +1,71 @@
 package ProSky;
 
 public class Main {
-  static Employee[] employees = new Employee[10];
+ private static Employee[] employees = new Employee[10];
 
-    static void calculateSum( Employee[] salary)  {
+   private static void calculateSum( )  {
+
         double sum = 0;
-        for (int i = 0; i <= salary.length-1; i++) {
-            if (salary[i] == null){
+        for (int i = 0; i <= employees.length - 1; i++) {
+            if (employees[i] == null){
                 continue;
             }
-            sum = sum + salary[i].getSalary();
+            sum = sum + employees[i].getSalary();
         }
         System.out.println(" сумма всех зарплат : " + sum);
     }
-    static void listSotrudnik( Employee[] salary) {
-        for (int i = 0; i <= salary.length-1; i++) {
-            if (salary[i] == null){
+   private static void listSotrudnik() {
+        for (int i = 0; i <= employees.length-1; i++) {
+            if (employees[i] == null){
                 continue;
             }
-            System.out.println(salary[i]);
+            System.out.println(employees[i]);
         }
 
     }
-    static void minSum( Employee[] salary) {
-        double min = salary[0].getSalary();
-        for (int i = 0; i <= salary.length-1; i++) {
-            if (salary[i] == null){
+   private static void minSum() {
+        double min = employees[0].getSalary();
+        for (int i = 0; i <=employees.length-1; i++) {
+            if (employees[i] == null){
                 continue;
             }
-            if(min > salary[i].getSalary()) {
-                min = salary[i].getSalary();
+            if(min > employees[i].getSalary()) {
+                min = employees[i].getSalary();
             }
         }
         System.out.println(" минимальная  зарплата : " + min);
     }
-    static void maxSum( Employee[] salary) {
-        double max = salary[0].getSalary();
-        for (int i = 0; i <= salary.length-1; i++) {
-            if (salary[i] == null){
+   private static void maxSum( ) {
+        double max = employees[0].getSalary();
+        for (int i = 0; i <= employees.length-1; i++) {
+            if (employees[i] == null){
                 continue;
             }
-            if(max < salary[i].getSalary()) {
-                max = salary[i].getSalary();
+            if(max < employees[i].getSalary()) {
+                max = employees[i].getSalary();
             }
         }
         System.out.println(" максимальная  зарплат : " + max);
     }
-    static void averageSum( Employee[] salary) {
+   private static void averageSum( ) {
         double sum = 0f;
         int namber = 0 ;
-        for (int i = 0; i <= salary.length-1; i++) {
-            if (salary[i] == null){
-                break;
+        for (int i = 0; i <= employees.length-1; i++) {
+            if (employees[i] == null){
+                continue;
             }
             namber++;
-            sum = sum + salary[i].getSalary();
+            sum = sum + employees[i].getSalary();
         }
         sum = sum/namber;
         System.out.println(" средняя сумма всех зарплат : " + sum+"\n");
     }
-    static void listFio( Employee[] salary) {
-        for (int i = 0; i <= salary.length-1; i++) {
-            if (salary[i] == null){
+   private static void listFio( ) {
+        for (int i = 0; i <= employees.length-1; i++) {
+            if (employees[i] == null){
                 continue;
             }
-            System.out.println(" имя : "+salary[i].getName()+" : фамилия  " +salary[i].getFamily() +" : отчество " +salary[i].getPatronymic());
+            System.out.println(" имя : "+employees[i].getName()+" : фамилия  " +employees[i].getFamily() +" : отчество " +employees[i].getPatronymic());
         }
 
     }
@@ -77,12 +78,13 @@ public class Main {
       employees[2] = new Employee("Артём","Колесников","Анатольевич",1,52.34);
       employees[3] = new Employee("Ольга","Пагубная","Валерьевна",3,15.0);
       employees[4] = new Employee("Василий","Попросили","Владимирович",1,60.32);
-      listSotrudnik(employees);
-      calculateSum(employees);
-      minSum(employees);
-      maxSum(employees);
-      averageSum(employees);
-      listFio(employees);
+
+      averageSum();
+      calculateSum();
+      listSotrudnik();
+      minSum();
+      maxSum();
+      listFio();
 
     }
 }
